@@ -7,6 +7,21 @@ int roundNumber = 0;
 int p1_score = 0;
 int p2_score = 0;
 int lastPlayer = 1;
+int p1w, p2w, draw;
+//prints state of the board
+void printMenu(){
+    //if no matches are played, then initialize
+    if (p1w == 0 && p2w == 0 && draw == 0){
+    printf("Welcome to the Connect Four Experience!\n");
+    printf("Enter S to Start.\n");
+    }
+    else{
+        //show score
+        printf("Current Score is\n Player1 %dpt : Player2 %dpt\n",p1w,p2w);
+        printf("Another Round?\n");
+    }
+}
+
 void reset(){
     roundNumber = 1;
     p1_score = 0;
@@ -18,7 +33,7 @@ void reset(){
     }
 }
 int addPiece(int player, int column){
-    column--;
+    column;
     if(board[0][column] != '-'){
         return 0;
     }
@@ -41,6 +56,7 @@ int checkIfWin(int column){
         row++;
     }
     char playerPiece = board[row][column];
+    printf("Playerpiece is %c \n",playerPiece);
     int connected = 1;
     //check horizontal
     int c = column;
@@ -63,6 +79,8 @@ int checkIfWin(int column){
         c--;
     }
     if(connected > 3){
+        printf("Row is %d \n",row);
+        printf("Column is %d \n",column);
         printf("Playerpiece is %c \n",playerPiece);
         printf("Connected is %d \n",connected);
         printf("Line 65 Win\n");
@@ -196,6 +214,7 @@ void turns(int Player){
     while(status==0){
         printf("Target column:");
         scanf("%d",&targetc);
+        targetc--;
         status=addPiece(Player,targetc);
         if(status==0){
             printf("Invalid column\n");
@@ -206,15 +225,6 @@ void turns(int Player){
         gameActive = 0;
         return;
     }
-}
-
-
-
-//prints state of the board
-void printMenu(){
-    char cont;
-    printf("Welcome to the Connect Four Experience!\n");
-    printf("Enter S to Start.\n");
 }
 
 void printboardold(){
