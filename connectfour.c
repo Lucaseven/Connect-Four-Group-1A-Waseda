@@ -9,7 +9,7 @@ void printMenu(){
     printf("Welcome to the Connect Four Experience!\n");
     printf("Enter S to Start.\n");
 }
-void printboard(){
+void printBoard(){
     for(int i = 0; i < 6; i++){
         for(int j = 0; j < 7; j++){
             //Check for X
@@ -41,6 +41,6 @@ int main(void){
             board[i][j] = '-';
         }
     }
-    printboard();
+    printBoard();
     return 0;
 }
