@@ -40,6 +40,8 @@ int checkIfWin(int row, int column){
     while (c < 7){
         if (board[row][c] == playerPiece){
             connected++;
+        }else{
+            break;
         }
         c++;
     }
@@ -47,6 +49,8 @@ int checkIfWin(int row, int column){
     while (c >= 0){
         if (board[row][c] == playerPiece){
             connected++;
+        }else{
+            break;
         }
         c--;
     }
@@ -61,6 +65,8 @@ int checkIfWin(int row, int column){
     while(r < 6){
         if(board[r][column] == playerPiece){
             connected++;
+        }else{
+            break;
         }
         r++;
     }
@@ -68,6 +74,8 @@ int checkIfWin(int row, int column){
     while (r >= 0){
         if(board[r][column] == playerPiece){
             connected ++;
+        }else{
+            break;
         }
         r--;
     }
@@ -82,6 +90,8 @@ int checkIfWin(int row, int column){
     while ((r < 6) && (c < 7)){
         if(board[r][c] == playerPiece){
             connected++;
+        }else{
+            break;
         }
         r++;
         c++;
@@ -91,6 +101,8 @@ int checkIfWin(int row, int column){
     while ((r >= 0) && (c >= 0)){
         if(board[r][c] == playerPiece){
             connected++;
+        }else{
+            break;
         }
         r--;
         c--;
@@ -106,6 +118,8 @@ int checkIfWin(int row, int column){
     while ((r >= 0) && (c < 7)){
         if(board[r][c] == playerPiece){
             connected++;
+        }else{
+            break;
         }
         r--;
         c++;
@@ -115,6 +129,8 @@ int checkIfWin(int row, int column){
     while ((r < 6) && (c >= 0)){
         if(board[r][c] == playerPiece){
             connected++;
+        }else{
+            break;
         }
         r++;
         c--;
