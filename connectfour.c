@@ -31,7 +31,11 @@ void printboard(){
     }
 }
 
-int checkIfWin(int row, int column){
+int checkIfWin(int column){
+    int row = 0;
+    while (board[row][column] == '-'){
+        row++;
+    }
     char playerPiece = board[row][column];
     int connected = 1;
     //check horizontal
