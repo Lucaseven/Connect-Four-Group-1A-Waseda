@@ -4,13 +4,60 @@
 char board[6][7];
 int roundNumber = 0;
 int lastPlayer;
+void printboard(){
+    // print the board and the sides
+    for (int i = 0; i < 6; i++) {
+        printf("  "); // leave blanks for the column numbers to line up
+        for (int j = 0; j < 7; j++) {
+            printf("│");
+            if (board[i][j] == '-') {
+                printf("   "); // leave blank
+            } else {
+                printf(" %c ", board[i][j]); // print X or O
+            }
+        }
+        printf("│\n");
+    }
+    // print a horizontal line to rule out the column numbers
+    printf("  ");
+    for (int j = 0; j < 10; j++) {
+        printf("───");
+    }
+    printf("\n");
+
+
+    // print the column numbers
+    printf("   ");
+    for (int j = 0; j < 7; j++) {
+        printf(" %d  ", j + 1);
+    }
+    printf("\n");
+}
+
 //prints state of the board
 void printMenu(){
     char cont;
     printf("Welcome to the Connect Four Experience!\n");
     printf("Enter S to Start.\n");
 }
-void printboard(){
+int addPiece(int player, int column){
+    if(board[0][column] != '-'){
+        return 0;
+    }
+    for(int i = 5; i>=0; i--){
+        if(board[i][column] == '-'){
+            if(player){
+                board[i][column] = 'O';
+            }else{
+                board[i][column] = 'X';
+            }
+            break;
+        }
+    }
+    return 1;
+}
+
+/*void printboard(){
     for(int i = 0; i < 6; i++){
         for(int j = 0; j < 7; j++){
             //Check for X
@@ -29,7 +76,7 @@ void printboard(){
         //generate new line
         printf("\n");
     }
-}
+}*/
 
 int checkIfWin(int column){
     int row = 0;
@@ -160,5 +207,5 @@ int main(void){
     board[2][4] = 'O';
     printboard();
     checkIfWin(3,3);*/
-    return 0;
+    printboard();
 }
